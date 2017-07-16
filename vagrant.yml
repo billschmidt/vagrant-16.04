@@ -1,0 +1,5 @@
+synced_folder: /var/www/placeholder.wrschmidt.com
+fqdn: placeholder.wrschmidt.com
+nginx_hosts: placeholder.wrschmidt.com
+fpm_socket: /var/run/php-fpm.placeholder.sock
+db_name: placeholder

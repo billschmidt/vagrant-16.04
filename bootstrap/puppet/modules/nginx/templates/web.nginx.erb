@@ -1,0 +1,19 @@
+server {
+    listen 80;
+    listen [::]:80;
+    server_name <%= @nginx_hosts %>;
+    root <%= @synced_folder %>/public;
+
+    error_log <%= @synced_folder %>/log/error.log;
+    access_log <%= @synced_folder %>/log/access.log;
+
+    index index.html index.php;
+
+    location ~ \.php$ {
+        fastcgi_pass unix:<%= @fpm_socket %>;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        # this could go in the fastcgi_params but for provisioning it's easier if it's here
+        fastcgi_param SCRIPT_FILENAME $request_filename;
+    }
+}
