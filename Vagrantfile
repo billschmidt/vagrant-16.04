@@ -21,6 +21,7 @@ Vagrant.configure("2") do |config|
     config.vm.provider "virtualbox" do |v|
         v.memory = 4096
         v.cpus = 4
+        v.name = settings['fqdn']
     end
 
     # ssh settings
